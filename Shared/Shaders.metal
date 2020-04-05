@@ -80,7 +80,7 @@ vertex VertexOut vertex_main(Vertex in [[stage_in]],
 {
     VertexOut out;
     out.position = uniforms.modelViewProjectionMatrix * float4(in.position, 1.0);
-    out.texCoords = in.texCoords;
+    out.texCoords = float2(in.texCoords.x,1.0 - in.texCoords.y);
     out.normal = uniforms.normalMatrix * in.normal;
     out.tangent = uniforms.normalMatrix * in.tangent;
     out.bitangent = uniforms.normalMatrix * cross(in.normal, in.tangent);
